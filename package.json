@@ -1,16 +1,16 @@
 {
-  "name": "sr-11ty-tailwind-alpine-template",
+  "name": "do-you-know-when-you-will-graduate-website",
   "version": "1.0.0",
-  "description": "Template for new projects with 11ty, TailwindCSS, TailwindUI, and Alpine.js",
-  "author": "Shane Robinson",
+  "description": "for graduate students for their family when asked \"Do You Know When You 'll Graduate?\"",
+  "author": "Khoi Van",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shanerobinson/sr-11ty-tailwind-alpine-template/issues"
+    "url": "https://github.com/khoivan88/do-you-know-when-you-will-graduate-website/issues"
   },
-  "homepage": "https://github.com/shanerobinson/sr-11ty-tailwind-alpine-template#readme",
+  "homepage": "https://github.com/khoivan88/do-you-know-when-you-will-graduate-website#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shanerobinson/sr-11ty-tailwind-alpine-template.git"
+    "url": "https://github.com/khoivan88/do-you-know-when-you-will-graduate-website"
   },
   "keywords": [
     "11ty",
@@ -32,7 +32,6 @@
     "build:postcss": "NODE_ENV=production postcss src/assets/css/tailwind.css -o dist/assets/tailwind.css",
     "build": "run-s clean build:* --print-label"
   },
-  "dependencies": {},
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.6",
