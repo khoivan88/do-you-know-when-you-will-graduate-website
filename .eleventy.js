@@ -5,6 +5,7 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
 const markdownItEmoji = require('markdown-it-emoji')
 const externalLinks = require('eleventy-plugin-external-links'); // https://github.com/vimtor/eleventy-plugin-external-links
+const sitemap = require('@quasibit/eleventy-plugin-sitemap'); // https://github.com/quasibit/eleventy-plugin-sitemap
 
 // const collections = require('./utils/collections.js')
 const filters = require('./utils/filters.js')
@@ -30,7 +31,11 @@ module.exports = function (eleventyConfig) {
 		rel: 'noopener', // 'rel' attribute for external links
 		extensions: ['.html'], // Extensions to apply transform to
 	})
-	
+	eleventyConfig.addPlugin(sitemap, {
+		sitemap: {
+			hostname: 'https://doyouknowwhenyouwillgraduate.netlify.app/',
+		},
+	})
 	/**
 	 * Filters
 	 * @link https://www.11ty.io/docs/filters/
