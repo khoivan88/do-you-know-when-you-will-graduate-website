@@ -4,6 +4,7 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
 const markdownItEmoji = require('markdown-it-emoji')
+const externalLinks = require('eleventy-plugin-external-links'); // https://github.com/vimtor/eleventy-plugin-external-links
 
 // const collections = require('./utils/collections.js')
 const filters = require('./utils/filters.js')
@@ -21,7 +22,15 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginRss)
 	eleventyConfig.addPlugin(pluginNavigation)
 	eleventyConfig.addPlugin(syntaxHighlight)
-
+	eleventyConfig.addPlugin(externalLinks, {
+		// Plugin defaults:
+		name: 'external-links', // Plugin name
+		regex: /^(([a-z]+:)|(\/\/))/i, // Regex that test if href is external
+		target: '_blank', // 'target' attribute for external links
+		rel: 'noopener', // 'rel' attribute for external links
+		extensions: ['.html'], // Extensions to apply transform to
+	})
+	
 	/**
 	 * Filters
 	 * @link https://www.11ty.io/docs/filters/
