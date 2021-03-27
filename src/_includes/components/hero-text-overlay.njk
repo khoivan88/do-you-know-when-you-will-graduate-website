@@ -1,4 +1,4 @@
-<div class="absolute flex flex-col items-start justify-center h-full {{ heroSettings.headingTextColor or 'text-white' }} {{ structure.g_pageWidth }}">
+<div class="absolute flex flex-col items-start justify-center h-full -mt-8 {{ heroSettings.headingTextColor or 'text-white' }} {{ structure.g_pageWidth }}">
   <div class="text-4xl font-semibold leading-tight {{ heroSettings.headingTextCase }} md:text-6xl">
     {{ heroSettings.headingText | safe  }}
   </div>
@@ -7,21 +7,25 @@
   </div>
   {% if heroSettings.buttonText %}
     <div class="w-full mt-6 ">
-      {# <a href="{{ heroSettings.buttonURL }}" class="p-4 rounded-lg {{ heroSettings.buttonTextColor or colors.buttonCustom.text or colors.buttonDefault.text }} {{ heroSettings.buttonBgColor or colors.buttonCustom.bg or colors.buttonDefault.bg }} hover:{{ colors.buttonCustom.textHover or colors.buttonDefault.textHover }} hover:{{ heroSettings.buttonBgHover or colors.buttonCustom.bgHover or colors.buttonDefault.bgHover }} {{ heroSettings.buttonBorder or colors.buttonCustom.border or colors.buttonDefault.border }}">{{ heroSettings.buttonText }}</a> #}
-      <div x-data="{total_value:0}" class="max-w-screen-xl mx-auto">
-        <p>What year in graduate school?<br />
-        <input class="max-w-md border text-black" type="input" x-model="total_value" />
-        </br>Range Input:</br>
-        <input class="w-full" type="range" x-model="total_value" min="0" max="7" step="0.5">
-
-        <h1 class="py-6 text-2xl tracking-tight leading-10 font-extrabold text-white">Answer:</h1>
-        <p class="text-center"
-          x-show="total_value > 0"
-          x-bind:class="{'text-4xl': total_value > 4.5, 'text-3xl': total_value > 3.5, 'text-2xl': total_value > 2.5, 'text-xl': total_value > 1.5, 'text-lg': total_value > 0.5}">
-          <span x-show="total_value > 2">Still </span>No!
-          <span x-show="total_value > 3.5"> Seriously, STOP ASKING!!!</span>
-        </p>
-      </div>
+      <a href="{{ heroSettings.buttonURL }}" class="p-4 rounded-lg {{ heroSettings.buttonTextColor or colors.buttonCustom.text or colors.buttonDefault.text }} {{ heroSettings.buttonBgColor or colors.buttonCustom.bg or colors.buttonDefault.bg }} hover:{{ colors.buttonCustom.textHover or colors.buttonDefault.textHover }} hover:{{ heroSettings.buttonBgHover or colors.buttonCustom.bgHover or colors.buttonDefault.bgHover }} {{ heroSettings.buttonBorder or colors.buttonCustom.border or colors.buttonDefault.border }}">{{ heroSettings.buttonText }}</a>
     </div>
   {% endif %}
+  <div x-data="{total_value:0}" class="max-w-screen-xl w-full mx-auto mt-3 md:mt-6">
+    <label>
+      What year in graduate school?
+      <input class="max-w-md border mx-4 text-black" type="input" x-model="total_value" />
+    </label>
+    <br>
+    <label>Range Input:
+      <input class="w-full" type="range" x-model="total_value" min="0" max="7" step="0.5">
+    </label>
+
+    <h1 class="pt-2 md:pt-6 text-2xl tracking-tight leading-10 font-extrabold text-white">Answer:</h1>
+    <p class="text-center"
+      x-show="total_value > 0"
+      x-bind:class="{'text-4xl': total_value > 4.5, 'text-3xl': total_value > 3.5, 'text-2xl': total_value > 2.5, 'text-xl': total_value > 1.5, 'text-lg': total_value > 0.5}">
+      <span x-show="total_value > 2">Still </span>No!
+      <span x-show="total_value > 3.5"> Seriously, STOP ASKING!!!</span>
+    </p>
+  </div>
 </div>
